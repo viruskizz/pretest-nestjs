@@ -1,0 +1,16 @@
+service: pretest-nestjs
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  anyHello:
+    handler: src/lambda.handler
+    events:
+      - http:
+          method: any
+          path: /{any+}
